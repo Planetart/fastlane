@@ -282,7 +282,8 @@ module Sigh
                            Spaceship::ConnectAPI::Device::DeviceClass::APPLE_WATCH,
                            Spaceship::ConnectAPI::Device::DeviceClass::IPAD,
                            Spaceship::ConnectAPI::Device::DeviceClass::IPHONE,
-                           Spaceship::ConnectAPI::Device::DeviceClass::IPOD
+                           Spaceship::ConnectAPI::Device::DeviceClass::IPOD,
+                           Spaceship::ConnectAPI::Device::DeviceClass::MAC
                          ]
                        when 'tvos'
                          [Spaceship::ConnectAPI::Device::DeviceClass::APPLE_TV]
@@ -291,7 +292,6 @@ module Sigh
                        end
       if Sigh.config[:platform].to_s == 'ios' && Sigh.config[:include_mac_in_profiles]
         device_classes += [Spaceship::ConnectAPI::Device::DeviceClass::APPLE_SILICON_MAC]
-        device_classes += [Spaceship::ConnectAPI::Device::DeviceClass::MAC]
       end
       if Spaceship::ConnectAPI.token
         return Spaceship::ConnectAPI::Device.all.select do |device|
