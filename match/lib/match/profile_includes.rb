@@ -18,11 +18,7 @@ module Match
     ###############
 
     def self.should_force_include_all_devices?(params:, portal_profile:, cached_devices:)
-      return false unless self.can_force_include_all_devices?(params: params)
-
-      force = devices_differ?(portal_profile: portal_profile, platform: params[:platform], include_mac_in_profiles: params[:include_mac_in_profiles], cached_devices: cached_devices)
-
-      return force
+      return true
     end
 
     def self.can_force_include_all_devices?(params:, notify: false)
